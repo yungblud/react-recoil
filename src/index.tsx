@@ -3,13 +3,20 @@ import ReactDOM from 'react-dom'
 import { RecoilRoot } from 'recoil'
 import CharacterCounter from './CharacterCounter'
 import TodoList from './todo/TodoList'
+import User from './asynchronous/User'
+import ErrorBoundary from './asynchronous/ErrorBoundary'
 import * as serviceWorker from './serviceWorker'
 
 ReactDOM.render(
     <React.StrictMode>
         <RecoilRoot>
-            <CharacterCounter />
-            <TodoList />
+            <ErrorBoundary>
+                <CharacterCounter />
+                <TodoList />
+                <React.Suspense fallback={<div>Loading...</div>}>
+                    <User />
+                </React.Suspense>
+            </ErrorBoundary>
         </RecoilRoot>
     </React.StrictMode>,
     document.getElementById('root')
