@@ -5,6 +5,7 @@ import CharacterCounter from './CharacterCounter'
 import TodoList from './todo/TodoList'
 import User from './asynchronous/User'
 import ErrorBoundary from './asynchronous/ErrorBoundary'
+import DenoTodoList from './withDeno/TodoList'
 import * as serviceWorker from './serviceWorker'
 
 ReactDOM.render(
@@ -15,6 +16,9 @@ ReactDOM.render(
                 <TodoList />
                 <React.Suspense fallback={<div>Loading...</div>}>
                     <User />
+                </React.Suspense>
+                <React.Suspense fallback={<div>Loading...</div>}>
+                    <DenoTodoList />
                 </React.Suspense>
             </ErrorBoundary>
         </RecoilRoot>
